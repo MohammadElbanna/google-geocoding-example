@@ -1,0 +1,15 @@
+.searchInput {
+  width: calc(100% - 80px);
+  height: 70px;
+  background: white;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  top: 40px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  font-size: 20px;
+  box-shadow: 0 0 1.6rem rgba(0,0,0,.25);
+  border: none;
+  border-radius: 5px;
+}
