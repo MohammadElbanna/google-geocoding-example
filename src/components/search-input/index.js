@@ -15,11 +15,20 @@ const toggleLoadingIndictor = () => {
   searchIcon.classList.toggle("visible");
 }
 
+const fireSearchResultsEvents = results => {
+  const searchResultEvent = new CustomEvent("searchResults", {
+    detail: { results },
+    bubbles: true
+  });
+  searchForm.dispatchEvent(searchResultEvent);
+}
+
 const handleAddressChange = async e => {
   if (e.type === "submit") {
     e.preventDefault();
   }
   if (searchInput.value.length <= 2) {
+    fireSearchResultsEvents([]);
     return;
   }
   const address = searchInput.value;
@@ -30,14 +39,10 @@ const handleAddressChange = async e => {
   if (searchInput.value != address) {
     return;
   }
-  const searchResultEvent = new CustomEvent("searchResults", {
-    detail: { results },
-    bubbles: true
-  });
-  searchForm.dispatchEvent(searchResultEvent);
+  fireSearchResultsEvents(results);
 };
 
 searchForm.addEventListener('submit', handleAddressChange);
 
 // TODO: autoSearch
-searchInput.addEventListener("keyup", debounce(handleAddressChange, 300));
+searchInput.addEventListener("input", debounce(handleAddressChange, 300));
