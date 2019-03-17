@@ -43,6 +43,6 @@ const handleAddressChange = async e => {
 };
 
 searchForm.addEventListener('submit', handleAddressChange);
+searchIcon.addEventListener('click', handleAddressChange);
 
-// TODO: autoSearch
 searchInput.addEventListener("input", debounce(handleAddressChange, 300));
