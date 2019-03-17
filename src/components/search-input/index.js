@@ -2,6 +2,7 @@
  * This files handles any logic or renders related to Search input field
  */
 
+import { debounce } from 'lodash';
 import { getGeocodedAddresses } from '../../services/location-service';
 
 const searchForm = document.querySelector(".search-form");
@@ -14,19 +15,29 @@ const toggleLoadingIndictor = () => {
   searchIcon.classList.toggle("visible");
 }
 
-
-searchForm.addEventListener('submit', async e => {
-  e.preventDefault();
-
+const handleAddressChange = async e => {
+  if (e.type === "submit") {
+    e.preventDefault();
+  }
+  if (searchInput.value.length <= 2) {
+    return;
+  }
+  const address = searchInput.value;
   toggleLoadingIndictor();
-  const results = await getGeocodedAddresses(searchInput.value);
+  const results = await getGeocodedAddresses(address);
   toggleLoadingIndictor();
+
+  if (searchInput.value != address) {
+    return;
+  }
   const searchResultEvent = new CustomEvent("searchResults", {
     detail: { results },
     bubbles: true
   });
   searchForm.dispatchEvent(searchResultEvent);
-});
+};
+
+searchForm.addEventListener('submit', handleAddressChange);
 
 // TODO: autoSearch
-searchInput.addEventListener("change", () => { });
+searchInput.addEventListener("keyup", debounce(handleAddressChange, 300));
