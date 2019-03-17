@@ -1,0 +1,47 @@
+.search-results {
+  background: white;
+  overflow: auto;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  padding: 0;
+
+
+  &Item {
+    list-style-type: none;
+    padding: 20px;
+    border-bottom: 1px solid #ededf3;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+    & * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      background: #eee;
+    }
+
+    &:last-child {
+      border: none;
+    }
+    
+    &-noresult {  
+      text-align: center;
+      list-style-type: none;
+      padding: 20px;
+    }
+
+    &-position {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #8c8c8c;
+      span {
+        padding-right: 50px;
+      }
+    }
+  }
+}

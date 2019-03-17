@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: [
-    './src/index.js',
+    './src/components/map/index.js',
+    './src/components/search-input/index.js',
+    './src/components/search-results/index.js',
     './src/index.scss'
   ],
   output: {
@@ -13,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'My App',
+      title: 'Google Geocoding Example',
       template: 'src/index.html'
 
     })

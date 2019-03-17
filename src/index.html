@@ -13,11 +13,28 @@
     <div class="map"></div>
   </div>
 
-  <input class="searchInput" type="text" placeholder="Enter address" />
+  <div class="search-wrapper">
+    <form class="search-form" novalidate>
+      <input class="search-input" type="text" placeholder="Enter address" />
+      <svg class="search-input-fire visible" viewBox="0 0 23 23" id="search" width="100%" height="100%">
+        <path
+          d="M14.1265242,19.6486021 C9.43210379,19.6486021 5.62652416,15.8430225 5.62652416,11.1486021 C5.62652416,6.45418173 9.43210379,2.6486021 14.1265242,2.6486021 C18.8209445,2.6486021 22.6265242,6.45418173 22.6265242,11.1486021 C22.6265242,15.8430225 18.8209445,19.6486021 14.1265242,19.6486021 Z M13.1265242,20.6044462 L15.1265242,20.6044462 L15.1265242,25.6044462 L13.1265242,25.6044462 L13.1265242,20.6044462 Z"
+          transform="rotate(-45 10.71231044 15.54073756)" stroke-width="2" fill="none" fill-rule="evenodd"></path>
+      </svg>
+      <svg class="search-input-loading" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50"
+        style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <path fill="#000"
+          d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+          <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25"
+            dur="0.6s" repeatCount="indefinite" />
+        </path>
+      </svg>
+    </form>
 
-  <div class="searchResults">
-    <div class="noResultsText">No results to be shown</div>
+    <ul class="search-results"></ul>
   </div>
+
 
   <script defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl44gBdXcetwIdfY7TtKZbM01GDTsZXRA&callback=initMap">

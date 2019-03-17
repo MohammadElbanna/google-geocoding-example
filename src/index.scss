@@ -1,17 +1,16 @@
 @import './components/search-input/search-input';
+@import './components/map/map';
+@import './components/search-results/search-results';
+
+// ===============
+//  global styles
+// ===============
 
 body, html {
   margin: 0;
   padding: 0;
 }
 
-.map {
-  &-wrapper {
-    position: fixed;
-    width: 100%;
-    height: 100%;  
-    z-index: -1;
-  }
-  width: 100%;
-  height: 100%;
+.visible {
+  display: block !important;
 }
