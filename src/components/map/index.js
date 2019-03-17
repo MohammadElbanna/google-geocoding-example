@@ -19,7 +19,9 @@ function renderPosition(position) {
 }
 
 function removeMarker() {
-  marker.setMap(null);
+  if (marker) {
+    marker.setMap(null);
+  }
 }
 
 document.addEventListener("searchResults", e => {
